@@ -8,6 +8,11 @@ ThisBuild / organizationName := "example"
 lazy val root = (project in file("."))
   .settings(
     name := "Scala Seed Project",
+    addCompilerPlugin(scalafixSemanticdb), // enable SemanticDB
+    scalacOptions ++= List(
+    "-Yrangepos",          // required by SemanticDB compiler plugin
+    "-Ywarn-unused" // required by `RemoveUnused` rule
+   ),
     libraryDependencies += scalaTest % Test
   )
 
