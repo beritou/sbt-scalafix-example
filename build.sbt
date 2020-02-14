@@ -1,12 +1,13 @@
 import Dependencies._
 
 addCommandAlias(
+  "fixCheck",
   "; compile:scalafix --check ; test:scalafix --check"
 )
 
-ThisBuild / scalaVersion     := "2.13.1"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "com.example"
+ThisBuild / scalaVersion := "2.13.1"
+ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / organization := "com.example"
 ThisBuild / organizationName := "example"
 
 lazy val root = (project in file("."))
@@ -14,9 +15,9 @@ lazy val root = (project in file("."))
     name := "Scala Seed Project",
     addCompilerPlugin(scalafixSemanticdb), // enable SemanticDB
     scalacOptions ++= List(
-    "-Yrangepos",          // required by SemanticDB compiler plugin
-    "-Ywarn-unused" // required by `RemoveUnused` rule
-   ),
+      "-Yrangepos", // required by SemanticDB compiler plugin
+      "-Ywarn-unused" // required by `RemoveUnused` rule
+    ),
     libraryDependencies += scalaTest % Test
   )
 
