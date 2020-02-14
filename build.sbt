@@ -1,7 +1,7 @@
 import Dependencies._
 
 addCommandAlias(
-  "fixCheck",
+  // "fixCheck",
   "; compile:scalafix --check ; test:scalafix --check"
 )
 
